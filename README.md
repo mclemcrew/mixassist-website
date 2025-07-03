@@ -5,8 +5,6 @@ This is the official website for the MixAssist dataset, an audio-language datase
 ## Paper
 [MixAssist: An Audio-Language Dataset for Co-Creative AI Assistance in Music Mixing](link-to-paper)
 
-Published at COLM 2025
-
 ## Quick Start
 
 To run locally:
@@ -21,18 +19,7 @@ To deploy to GitHub Pages:
 5. Save and wait for deployment
 
 ## Authors
-- Michael Clemens
-- Ana Marasović
 
 ## Citation
-```bibtex
-@inproceedings{clemens2025mixassist,
-  title={MixAssist: An Audio-Language Dataset for Co-Creative AI Assistance in Music Mixing},
-  author={Clemens, Michael and Marasović, Ana},
-  booktitle={Conference on Language Modeling (COLM)},
-  year={2025}
-}
-```
 
 ## License
-[Add your license here]
