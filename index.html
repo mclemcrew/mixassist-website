@@ -67,18 +67,18 @@
 
       // --- DATA ---
       const csvData = `instruction,response,input_audio
-"The bass seems to be clashing with the kick drum. Any suggestions?","Try side-chain compression on the bass triggered by the kick. Also, cut around 60-80Hz on the bass and boost that range slightly on the kick.","audio/sample_001.mp3"
-"How can I make the mix sound wider?","Use the Haas effect on some elements, pan your hi-hats and percussion, and try some stereo widening on the reverb returns. Keep bass and kick centered though.","audio/sample_002.mp3"
-"The vocals are getting lost in the mix. What should I do?","Try a bit of parallel compression to bring up the body of the vocal. You can also use a dynamic EQ to carve out space in the instrumental tracks around the vocal frequencies.","audio/sample_003.mp3"
-"My reverb sounds muddy. How can I clean it up?","EQ your reverb return. A high-pass filter to cut out low frequencies and a slight dip in the mids can clean it up significantly without losing the sense of space.","audio/sample_004.mp3"
-"The acoustic guitar sounds a bit thin. How can I add some warmth?","Try a subtle chorus effect or a tape saturation plugin. A little bit of compression with a slower attack time can also help bring out the body of the instrument.","audio/sample_005.mp3"
-"How do I get my drums to punch through the mix more?","Bus your drum tracks together and use some parallel compression. Also, check for phase issues between your kick and snare mics. A transient shaper can also help emphasize the attack.","audio/sample_006.mp3"
-"What's a good starting point for compressing a lead vocal?","Start with a ratio of around 3:1 or 4:1, a medium attack (10-20ms), and a fast release. Aim for about 3-5dB of gain reduction on the loudest parts. Adjust from there to taste.","audio/sample_007.mp3"
-"The overall mix feels a bit dull. How can I add some sparkle?","A high-shelf EQ boost on the master bus, starting around 10-12kHz, can add some air and brightness. Be subtle with it. A multiband exciter can also work wonders.","audio/sample_008.mp3"
-"Should I put reverb on my bass?","Generally, it's best to keep bass frequencies mono and dry to maintain power and clarity. If you want space, you can try a very short, subtle reverb or a chorus effect on the mid/high frequencies of the bass only.","audio/sample_009.mp3"
-"My cymbals are too harsh. How can I tame them?","Use a de-esser targeting the harsh frequencies (usually around 5-8kHz). You can also use a dynamic EQ to cut those frequencies only when they get too loud.","audio/sample_010.mp3"
-"How can I make the electric guitar sound bigger?","Double-track the guitar part and pan one hard left and the other hard right. Even slight variations in timing and performance will create a wide, full sound.","audio/sample_011.mp3"
-"The piano sounds distant. How do I bring it forward?","Reduce the amount of reverb on it. You can also try a slight boost in the upper-mid frequencies (around 1-3kHz) to increase its presence.","audio/sample_012.mp3"`;
+"The bass, I think needs a little bit of saturation. What did I write?","Focus on transients?","audio/segments/Group1/cut_80.wav"
+"So quiet!","Yeah, I would definitely put a saturator on that like a cab amp or something.","audio/segments/Group4/cut_29.wav"
+"I think I kind of want to keep it a little muddy. Just a little, just because it's country.","So what I would do is keep it at 3dB and then add that extra drive with overdrive or saturation.","audio/segments/Group4/cut_32.wav"
+"The sound doesn't break through as much.","It doesn't cut through, right? So what I would probably do is take out on the distortion channel. I'd probably take out some of that low that's crossing over with the, with the bass low-end so that the high-end of that distortion is kind of cutting better.","audio/segments/Group7/cut_42.wav"
+"Do people often put like vocal compressors, like, should I get like another more maybe characteristic compressor to throw on this, I think, or what?","You certainly could. People do use a second compressor sometimes for a little bit of tonal character. I would say that you can do that if you want to, but it's more of a icing on the cake kind of thing and I would maybe recommend playing around with other effects that you might want first.","audio/segments/Group3/cut_27.wav"
+"Yeah, I think I wanted it more in the background than like... 'Cause this is kinda like, I don't know if I really like that as much as like just being on it.","You could, or I mean, I would maybe get the reverb tail at a volume where you can hear it, where it's quiet enough that you, you aren't hearing it interrupt in places that you don't want it to be showing up, but you can still hear it at like the end of phrases when maybe you do want to hear it a little more.","audio/segments/Group3/cut_35.wav"
+"Yeah! The keys are so quiet.","I think I would put a compressor bus on both of those. And turn that limiter on on the compressor. Maybe turn the threshold down a little bit.","audio/segments/Group4/cut_37.wav"
+"So it's that like after, it's like the, whatever the guitar pedal is, like the reverb or whatever's that rock and roll, static-y sound for lack of a better word. So it really either has to go or has to be isolated.","Or just turn down, right? It might just be too loud because unfortunately what you can't do is when you have raw tone, you can't change that, right? Half of it has taken a good track to begin with. I think you might just turn the level down so it fits in the mix better instead of trying to change any of the tones.","audio/segments/Group7/cut_46.wav"
+"I feel like it's not eating up a ton of space right now, which is, like, you know, good in moderation, but I feel like it could be a little bit fuller, you know?","Nah, I think it's fine, it doesn't need to be fuller. Yeah, what I'm thinking, can you solo the DI again?","audio/segments/Group2/cut_7.wav"
+"I think that's already sounding a lot better with the release down on. What are your thoughts?","Yeah, when I think at the release, I look at it and I listen and I think the release, the compressor, the action of the compressor should pretty much completely go away from it being engaged for a loud note to it being engaged for the next loud note, right? And so if the compressor is constantly engaged, we don't get the dynamics of it.","audio/segments/Group2/cut_147.wav"
+"So maybe just a, like a room?","A large room.","audio/segments/Group1/cut_58.wav"
+"Yeah, it's still kind of popping out.","Yeah, there's a couple hits in that section.","audio/segments/Group2/cut_123.wav"`;
 
       // --- COMPONENTS ---
 
@@ -100,12 +100,12 @@
       };
 
       const getSrcset = (imagePath) => {
-        const [basePath, queryString] = imagePath.split('?');
-        const parts = basePath.split('.');
+        const [basePath, queryString] = imagePath.split("?");
+        const parts = basePath.split(".");
         const extension = parts.pop();
-        const filename = parts.join('.');
+        const filename = parts.join(".");
         const retinaPath = `${filename}@4x.${extension}`;
-        const timestamp = queryString ? `?${queryString}` : '';
+        const timestamp = queryString ? `?${queryString}` : "";
         return `${basePath}${timestamp} 1x, ${retinaPath}${timestamp} 4x`;
       };
 
@@ -268,7 +268,11 @@
               >
                 <img
                   src={theme === "dark" ? step.image_dark : step.image_light}
-                  srcSet={theme === "dark" ? getSrcset(step.image_dark) : getSrcset(step.image_light)}
+                  srcSet={
+                    theme === "dark"
+                      ? getSrcset(step.image_dark)
+                      : getSrcset(step.image_light)
+                  }
                   alt={step.title}
                   className="h-40 object-contain"
                 />
@@ -736,47 +740,53 @@
         const audioSamples = [
           {
             id: "sample-1",
-            title: "EQ Discussion",
-            audio: "sample_001.mp3",
-            amateur: "Do you like it drastic? The low shelf around 150Hz?",
-            expert: "For this style of music, I think that's perfect.",
-            context: "Discussing EQ adjustments on guitar track",
+            title: "Bass Saturation Discussion",
+            audio: "cut_29.wav",
+            amateur:
+              "We've been working on balancing the guitar sounds, experimenting with attack and release settings to improve the dynamics, and adding some chorus for depth. Now, I'm thinking of focusing on refining the bass to make sure it sits well in the mix before moving on to any additional accents. So quiet!",
+            expert:
+              "Yeah, I would definitely put a saturator on that like a cab amp or something.",
+            context: "Discussing bass refinement and saturation",
           },
           {
             id: "sample-2",
-            title: "Compression on Drums",
-            audio: "sample_006.mp3",
-            amateur: "The drums feel a bit loose. Should I add compression?",
+            title: "Reverb Tail Balance",
+            audio: "cut_35.wav",
+            amateur:
+              "Yeah, I think I wanted it more in the background than like... 'Cause this is kinda like, I don't know if I really like that as much as like just being on it. I could always do like a peak controller, and that's the rate to match with the peaks. So it turns off when it's not like speaking, but that would take a second.",
             expert:
-              "Yeah, try a 4:1 ratio with a fast attack to tighten them up.",
-            context: "Working on drum dynamics",
+              "You could, or I mean, I would maybe get the reverb tail at a volume where you can hear it, where it's quiet enough that you, you aren't hearing it interrupt in places that you don't want it to be showing up, but you can still hear it at like the end of phrases when maybe you do want to hear it a little more.",
+            context: "Fine-tuning reverb tail for the mix",
           },
           {
             id: "sample-3",
-            title: "Reverb Settings",
-            audio: "sample_004.mp3",
-            amateur: "I feel like the vocals are too dry. What about reverb?",
-            expert: "Let's add a plate reverb with about 1.5 seconds decay.",
-            context: "Adding spatial effects to vocals",
+            title: "Guitar Tone Adjustment",
+            audio: "cut_46.wav",
+            amateur:
+              "So it's that like after, it's like the, whatever the guitar pedal is, like the reverb or whatever's that rock and roll, static-y sound for lack of a better word. So it really either has to go or has to be isolated.",
+            expert:
+              "Or just turn down, right? It might just be too loud because unfortunately what you can't do is when you have raw tone, you can't change that, right? Half of it has taken a good track to begin with. I think you might just turn the level down so it fits in the mix better instead of trying to change any of the tones.",
+            context: "Working with raw guitar tones",
           },
         ];
 
         const modelComparisons = [
           {
             prompt:
-              "The bass seems to be clashing with the kick drum. Any suggestions?",
+              "I feel like it's tightening it up, but I feel like it's also, it's losing a bit of the energy.",
             human:
-              "Try side-chain compression on the bass triggered by the kick. Also, cut around 60-80Hz on the bass and boost that range slightly on the kick.",
-            qwen: "To resolve the clash between bass and kick drum, I recommend using EQ to carve out separate frequency spaces. Cut the bass around 60-80Hz where the kick's fundamental sits, and consider side-chain compression to duck the bass when the kick hits.",
-            audio: "comparison1.mp3",
+              "Yeah, when I think at the release, I look at it and I listen and I think the release, the compressor, the action of the compressor should pretty much completely go away from it being engaged for a loud note to it being engaged for the next loud note, right? And so if the compressor is constantly engaged, we don't get the dynamics of it. So we want it to just be engaged for the peaks and then for it to have a release that's quick enough that it goes away before the next big peak, right?",
+            qwen: "Yeah, I think it's definitely sounding better. The release time does make a big difference in the overall sound of the drums, and reducing it can help create a more controlled and cohesive rhythm section.",
+            audio: "cut_147.wav",
             id: "comp-1",
           },
           {
-            prompt: "How can I make the mix sound wider?",
+            prompt:
+              "I feel like it's not eating up a ton of space right now, which is, like, you know, good in moderation, but I feel like it could be a little bit fuller, you know?",
             human:
-              "Use the Haas effect on some elements, pan your hi-hats and percussion, and try some stereo widening on the reverb returns. Keep bass and kick centered though.",
-            qwen: "To achieve a wider mix, try these techniques: 1) Pan instruments to create space. 2) Use stereo delay or chorus. 3) Apply stereo imaging plugins carefully. 4) Keep low frequencies mono.",
-            audio: "comparison2.mp3",
+              "Nah, I think it's fine, it doesn't need to be fuller. Yeah, what I'm thinking, can you solo the DI again?",
+            qwen: "The sound seems to have a moderate amount of low frequency, indicating it doesn't occupy too much space in the frequency spectrum. However, it could potentially be made fuller by adding more instruments or adjusting the mix to include more frequencies.",
+            audio: "cut_7.wav",
             id: "comp-2",
           },
         ];
@@ -908,8 +918,8 @@
                   </div>
                   <h1
                     className={getThemeClasses(
-                      "text-6xl font-bold mb-6 text-orange-400 drop-shadow-[0_0_30px_rgba(255,107,53,0.5)]",
-                      "text-6xl font-bold mb-6 text-blue-600 drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]"
+                      "text-6xl font-bold mb-6 text-orange-400 drop-shadow-[0_0_50px_rgba(255,107,53,0.7)]",
+                      "text-6xl font-bold mb-6 text-blue-600 drop-shadow-[0_0_50px_rgba(59,130,246,0.5)]"
                     )}
                   >
                     MixAssist
