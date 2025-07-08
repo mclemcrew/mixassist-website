@@ -67,18 +67,18 @@
 
       // --- DATA ---
       const csvData = `instruction,response,input_audio
-"The bass, I think needs a little bit of saturation. What did I write?","Focus on transients?","audio/segments/Group1/cut_80.wav"
-"So quiet!","Yeah, I would definitely put a saturator on that like a cab amp or something.","audio/segments/Group4/cut_29.wav"
-"I think I kind of want to keep it a little muddy. Just a little, just because it's country.","So what I would do is keep it at 3dB and then add that extra drive with overdrive or saturation.","audio/segments/Group4/cut_32.wav"
-"The sound doesn't break through as much.","It doesn't cut through, right? So what I would probably do is take out on the distortion channel. I'd probably take out some of that low that's crossing over with the, with the bass low-end so that the high-end of that distortion is kind of cutting better.","audio/segments/Group7/cut_42.wav"
-"Do people often put like vocal compressors, like, should I get like another more maybe characteristic compressor to throw on this, I think, or what?","You certainly could. People do use a second compressor sometimes for a little bit of tonal character. I would say that you can do that if you want to, but it's more of a icing on the cake kind of thing and I would maybe recommend playing around with other effects that you might want first.","audio/segments/Group3/cut_27.wav"
-"Yeah, I think I wanted it more in the background than like... 'Cause this is kinda like, I don't know if I really like that as much as like just being on it.","You could, or I mean, I would maybe get the reverb tail at a volume where you can hear it, where it's quiet enough that you, you aren't hearing it interrupt in places that you don't want it to be showing up, but you can still hear it at like the end of phrases when maybe you do want to hear it a little more.","audio/segments/Group3/cut_35.wav"
-"Yeah! The keys are so quiet.","I think I would put a compressor bus on both of those. And turn that limiter on on the compressor. Maybe turn the threshold down a little bit.","audio/segments/Group4/cut_37.wav"
-"So it's that like after, it's like the, whatever the guitar pedal is, like the reverb or whatever's that rock and roll, static-y sound for lack of a better word. So it really either has to go or has to be isolated.","Or just turn down, right? It might just be too loud because unfortunately what you can't do is when you have raw tone, you can't change that, right? Half of it has taken a good track to begin with. I think you might just turn the level down so it fits in the mix better instead of trying to change any of the tones.","audio/segments/Group7/cut_46.wav"
-"I feel like it's not eating up a ton of space right now, which is, like, you know, good in moderation, but I feel like it could be a little bit fuller, you know?","Nah, I think it's fine, it doesn't need to be fuller. Yeah, what I'm thinking, can you solo the DI again?","audio/segments/Group2/cut_7.wav"
-"I think that's already sounding a lot better with the release down on. What are your thoughts?","Yeah, when I think at the release, I look at it and I listen and I think the release, the compressor, the action of the compressor should pretty much completely go away from it being engaged for a loud note to it being engaged for the next loud note, right? And so if the compressor is constantly engaged, we don't get the dynamics of it.","audio/segments/Group2/cut_147.wav"
-"So maybe just a, like a room?","A large room.","audio/segments/Group1/cut_58.wav"
-"Yeah, it's still kind of popping out.","Yeah, there's a couple hits in that section.","audio/segments/Group2/cut_123.wav"`;
+"The bass, I think needs a little bit of saturation. What did I write?","Focus on transients?","./audio/segments/Group1/cut_80.wav"
+"So quiet!","Yeah, I would definitely put a saturator on that like a cab amp or something.","./audio/segments/Group4/cut_29.wav"
+"I think I kind of want to keep it a little muddy. Just a little, just because it's country.","So what I would do is keep it at 3dB and then add that extra drive with overdrive or saturation.","./audio/segments/Group4/cut_32.wav"
+"The sound doesn't break through as much.","It doesn't cut through, right? So what I would probably do is take out on the distortion channel. I'd probably take out some of that low that's crossing over with the, with the bass low-end so that the high-end of that distortion is kind of cutting better.","./audio/segments/Group7/cut_42.wav"
+"Do people often put like vocal compressors, like, should I get like another more maybe characteristic compressor to throw on this, I think, or what?","You certainly could. People do use a second compressor sometimes for a little bit of tonal character. I would say that you can do that if you want to, but it's more of a icing on the cake kind of thing and I would maybe recommend playing around with other effects that you might want first.","./audio/segments/Group3/cut_27.wav"
+"Yeah, I think I wanted it more in the background than like... 'Cause this is kinda like, I don't know if I really like that as much as like just being on it.","You could, or I mean, I would maybe get the reverb tail at a volume where you can hear it, where it's quiet enough that you, you aren't hearing it interrupt in places that you don't want it to be showing up, but you can still hear it at like the end of phrases when maybe you do want to hear it a little more.","./audio/segments/Group3/cut_35.wav"
+"Yeah! The keys are so quiet.","I think I would put a compressor bus on both of those. And turn that limiter on on the compressor. Maybe turn the threshold down a little bit.","./audio/segments/Group4/cut_37.wav"
+"So it's that like after, it's like the, whatever the guitar pedal is, like the reverb or whatever's that rock and roll, static-y sound for lack of a better word. So it really either has to go or has to be isolated.","Or just turn down, right? It might just be too loud because unfortunately what you can't do is when you have raw tone, you can't change that, right? Half of it has taken a good track to begin with. I think you might just turn the level down so it fits in the mix better instead of trying to change any of the tones.","./audio/segments/Group7/cut_46.wav"
+"I feel like it's not eating up a ton of space right now, which is, like, you know, good in moderation, but I feel like it could be a little bit fuller, you know?","Nah, I think it's fine, it doesn't need to be fuller. Yeah, what I'm thinking, can you solo the DI again?","./audio/segments/Group2/cut_7.wav"
+"I think that's already sounding a lot better with the release down on. What are your thoughts?","Yeah, when I think at the release, I look at it and I listen and I think the release, the compressor, the action of the compressor should pretty much completely go away from it being engaged for a loud note to it being engaged for the next loud note, right? And so if the compressor is constantly engaged, we don't get the dynamics of it.","./audio/segments/Group2/cut_147.wav"
+"So maybe just a, like a room?","A large room.","./audio/segments/Group1/cut_58.wav"
+"Yeah, it's still kind of popping out.","Yeah, there's a couple hits in that section.","./audio/segments/Group2/cut_123.wav"`;
 
       // --- COMPONENTS ---
 
@@ -329,11 +329,12 @@
               >
                 <div
                   className={`absolute left-0 top-0 h-full ${
-                    theme === "dark"
-                      ? "bg-gradient-to-r from-orange-500 to-teal-400"
-                      : "bg-gradient-to-r from-blue-600 to-orange-500"
-                  } transition-all duration-200`}
-                  style={{ width: `${progress}%` }}
+                    theme === "dark" ? "bg-blue-500" : "bg-orange-500"
+                  }`}
+                  style={{
+                    width: `${progress}%`,
+                    transition: "width 0.5s ease-out",
+                  }}
                 />
               </div>
             </div>
@@ -437,9 +438,7 @@
           } else {
             if (audioRef.current) audioRef.current.pause();
             setActiveAudio(id);
-            const audioPath = `https://storage.googleapis.com/gemini-web-resources/mixassist-audio/${
-              item.audio.split("/")[1]
-            }`;
+            const audioPath = item.audio;
             audioRef.current = new Audio(audioPath);
             audioRef.current
               .play()
@@ -645,9 +644,7 @@
           } else {
             if (audioRef.current) audioRef.current.pause();
             setActiveAudio(id);
-            const audioPath = `https://storage.googleapis.com/gemini-web-resources/mixassist-audio/${
-              audioFile.split("/")[1] || "sample_001.mp3"
-            }`;
+            const audioPath = audioFile;
             audioRef.current = new Audio(audioPath);
             audioRef.current
               .play()
@@ -733,7 +730,7 @@
             finalValue: "19.4s",
             label: "Avg. Audio Duration",
             description:
-              "Audio clips are long enough to provide meaningful context for each turn.",
+              "./audio clips are long enough to provide meaningful context for each turn.",
           },
         ];
 
@@ -741,7 +738,7 @@
           {
             id: "sample-1",
             title: "Bass Saturation Discussion",
-            audio: "cut_29.wav",
+            audio: "./audio/segments/Group4/cut_29.wav",
             amateur:
               "We've been working on balancing the guitar sounds, experimenting with attack and release settings to improve the dynamics, and adding some chorus for depth. Now, I'm thinking of focusing on refining the bass to make sure it sits well in the mix before moving on to any additional accents. So quiet!",
             expert:
@@ -751,7 +748,7 @@
           {
             id: "sample-2",
             title: "Reverb Tail Balance",
-            audio: "cut_35.wav",
+            audio: "./audio/segments/Group3/cut_35.wav",
             amateur:
               "Yeah, I think I wanted it more in the background than like... 'Cause this is kinda like, I don't know if I really like that as much as like just being on it. I could always do like a peak controller, and that's the rate to match with the peaks. So it turns off when it's not like speaking, but that would take a second.",
             expert:
@@ -761,7 +758,7 @@
           {
             id: "sample-3",
             title: "Guitar Tone Adjustment",
-            audio: "cut_46.wav",
+            audio: "./audio/segments/Group7/cut_46.wav",
             amateur:
               "So it's that like after, it's like the, whatever the guitar pedal is, like the reverb or whatever's that rock and roll, static-y sound for lack of a better word. So it really either has to go or has to be isolated.",
             expert:
@@ -777,7 +774,7 @@
             human:
               "Yeah, when I think at the release, I look at it and I listen and I think the release, the compressor, the action of the compressor should pretty much completely go away from it being engaged for a loud note to it being engaged for the next loud note, right? And so if the compressor is constantly engaged, we don't get the dynamics of it. So we want it to just be engaged for the peaks and then for it to have a release that's quick enough that it goes away before the next big peak, right?",
             qwen: "Yeah, I think it's definitely sounding better. The release time does make a big difference in the overall sound of the drums, and reducing it can help create a more controlled and cohesive rhythm section.",
-            audio: "cut_147.wav",
+            audio: "./audio/segments/Group2/cut_38.wav",
             id: "comp-1",
           },
           {
@@ -786,7 +783,7 @@
             human:
               "Nah, I think it's fine, it doesn't need to be fuller. Yeah, what I'm thinking, can you solo the DI again?",
             qwen: "The sound seems to have a moderate amount of low frequency, indicating it doesn't occupy too much space in the frequency spectrum. However, it could potentially be made fuller by adding more instruments or adjusting the mix to include more frequencies.",
-            audio: "cut_7.wav",
+            audio: "./audio/segments/Group2/cut_44.wav",
             id: "comp-2",
           },
         ];
@@ -824,12 +821,14 @@
           },
         ];
 
-        const bibtexRef = `@inproceedings{clemens2025mixassist,
+        const bibtexRef = `TBA`;
+
+        const bibtexRef2 = `@inproceedings{clemens2025mixassist,
   title={MixAssist: An Audio-Language Dataset for Co-Creative AI Assistance in Music Mixing},
   author={Clemens, Michael and Marasović, Ana},
   booktitle={Conference on Language Modeling (COLM)},
   year={2025}
-}`;
+    }`;
 
         const handleComparisonChange = (index) => {
           if (index !== selectedComparison) {
@@ -1042,7 +1041,7 @@
                   each step is designed to capture the essence of co-creative
                   dialogue.
                 </p>
-                <div className="space-y-12">
+                <div className="hidden lg:block space-y-12">
                   {/* Top Row */}
                   <div className="flex flex-wrap justify-center items-center gap-8">
                     {pipelineSteps.slice(0, 3).map((step, index) => (
@@ -1088,6 +1087,30 @@
                           <div className="flex-shrink-0">
                             <LucideIcon
                               name="ArrowRight"
+                              className={getThemeClasses(
+                                "w-8 h-8 text-gray-400",
+                                "w-8 h-8 text-slate-500"
+                              )}
+                            />
+                          </div>
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </div>
+                </div>
+                <div className="block lg:hidden">
+                  <div className="flex flex-col items-center gap-8">
+                    {pipelineSteps.map((step, index) => (
+                      <React.Fragment key={`${index}-${theme}-mobile`}>
+                        <AnimatedPipelineStep
+                          step={step}
+                          theme={theme}
+                          animationDelay={`${index * 100}ms`}
+                        />
+                        {index < pipelineSteps.length - 1 && (
+                          <div className="my-4">
+                            <LucideIcon
+                              name="ArrowDown"
                               className={getThemeClasses(
                                 "w-8 h-8 text-gray-400",
                                 "w-8 h-8 text-slate-500"
@@ -1464,7 +1487,7 @@
                 <p
                   className={getThemeClasses("text-gray-400", "text-slate-600")}
                 >
-                  © 2025 MixAssist Dataset. Published at COLM 2025.
+                  © 2025 MixAssist Dataset.
                 </p>
               </div>
             </footer>
